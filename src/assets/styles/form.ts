@@ -1,13 +1,5 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-    * {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-`
 export const TextForm = styled.div`
     background: #1A1033E5;
     color: #FFFFFF;
@@ -27,11 +19,12 @@ export const TextForm = styled.div`
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px ;
     border: none;
+    padding: 0;
 `
 
 export const FormStyles = styled.div`
-    width: 23rem;
-    height: 40rem;
+    width: 24em;
+    height: 42rem;
     border: 2px solid #6950A1;
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
@@ -50,7 +43,7 @@ export const DivLabel = styled.div`
     margin-top: 25px;
 
     input {
-        width: 95%;
+        width: 90%;
         padding: 7px;
         border: 1px solid #6950A1;
         border-radius: 5px;
@@ -64,14 +57,15 @@ export const Span = styled.span`
 `
 
 export const Button = styled.button`
-    width: 95%;
+    width: 90%;
     padding: 10px;
     background: #6950A1;
     color: #FFFFFF;
     font-weight: 700;
     font-size: 20px;
     border: none;
-    border-radius: 20px;
-    margin-top: 30px;
+    border-radius: 20px; 
     cursor: pointer;
+    margin-top: 35px;
+    margin-left: 20px;
 `

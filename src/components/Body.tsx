@@ -14,7 +14,7 @@ export default function Body() {
                     software”, escrito por nossa qualificada equipe de profissionais e você aprenderá:
                 </BodyParagraph>
                 <BodyList>
-                    <li> As diferenças básicas entre as diferentes vagas de TI do mercado</li>
+                    <li>As diferenças básicas entre as diferentes vagas de TI do mercado</li>
                     <li>Onde começar a estudar</li>
                     <li>Quais habilidades são necessárias para um desenvolvedor de software</li>
                     <li>O que as empresas esperam de uma entrevista de emprego</li>

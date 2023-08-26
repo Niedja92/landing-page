@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react'
-import { FormStyles, TextForm, DivLabel, Span, Button, Container } from '../assets/styles/form.ts'
+import { FormStyles, TextForm, DivLabel, Span, Button } from '../assets/styles/form.ts'
 
 function random() {
     return Math.floor(Math.random() * 10) + 1;
@@ -31,6 +31,7 @@ export default function Form() {
 
         if (String(captcha.result) !== captchaResult) {
             alert('Validação incorreta')
+            return
         }
 
         await fetch('https://landing-page-api.vercel.app/api/lead', {
@@ -43,72 +44,80 @@ export default function Form() {
         })
 
         alert('LEAD enviado com SUCESSO!')
+
+        setName('');
+        setEmail('');
+        setPhone('');
+        setCaptchaResult('');
     }
 
     return (
         <>
-            <Container>
-                <FormStyles>
-                    <TextForm>
-                        <p>
-                            Preencha o formulário abaixo e tenha acesso ao e-book “O passo-a-passo para se tornar um desenvolvedor de Software”
-                        </p>
-                    </TextForm>
-                    <DivLabel>
-                        <label htmlFor='name'>
-                            <Span>Nome*</Span><br />
-                            <input
-                                type='text'
-                                name='name'
-                                id='name'
-                                onChange={(event) => setName(event.target.value)}
-                                required
-                            />
-                        </label><br />
-                    </DivLabel>
+            <FormStyles>
+                <TextForm>
+                    <p>
+                        Preencha o formulário abaixo e tenha acesso ao e-book “O passo-a-passo para se tornar um desenvolvedor de Software”
+                    </p>
+                </TextForm>
+                <DivLabel>
+                    <label htmlFor='name'>
+                        <Span>Nome*</Span><br />
+                        <input
+                            type='text'
+                            name='name'
+                            id='name'
+                            onChange={(event) => setName(event.target.value)}
+                            value={name}
+                            required
 
-                    <DivLabel>
-                        <label htmlFor='email'>
-                            <Span>E-mail*</Span><br />
-                            <input
-                                type='email'
-                                // name='email'
-                                id='email'
-                                onChange={(event) => setEmail(event.target.value)}
-                                required
-                            />
-                        </label><br />
-                    </DivLabel>
+                        />
+                    </label><br />
+                </DivLabel>
 
-                    <DivLabel>
-                        <label htmlFor='phone'>
-                            <Span>Telefone (WhatsApp)*</Span><br />
-                            <input
-                                // name='number'
-                                type='tel'
-                                id='phone'
-                                onChange={(event) => setPhone(event.target.value)}
-                            // value={phone}
-                            />
-                        </label><br />
-                    </DivLabel>
+                <DivLabel>
+                    <label htmlFor='email'>
+                        <Span>E-mail*</Span><br />
+                        <input
+                            type='email'
+                            // name='email'
+                            id='email'
+                            onChange={(event) => setEmail(event.target.value)}
+                            value={email}
+                            required
+                        />
+                    </label><br />
+                </DivLabel>
 
-                    <DivLabel>
-                        <label htmlFor='captcha'>{`${captcha.n1} + ${captcha.n2} - ${captcha.n3} ?`} <br />
-                            <input
-                                type='text'
-                                id='captcha'
-                                // name='captcha'
-                                required
-                                onChange={(event) => setCaptchaResult(event.target.value)}
-                            />
-                        </label>
-                    </DivLabel>
+                <DivLabel>
+                    <label htmlFor='phone'>
+                        <Span>Telefone (WhatsApp)*</Span><br />
+                        <input
+                            // name='number'
+                            type='tel'
+                            id='phone'
+                            onChange={(event) => setPhone(event.target.value)}
+                            value={phone}
+                        />
+                    </label><br />
+                </DivLabel>
 
-                    <Button type='submit' onClick={handleSubmit}>BAIXAR E-BOOK</Button>
+                <DivLabel>
+                    <label htmlFor='captcha'>{`${captcha.n1} + ${captcha.n2} - ${captcha.n3} ?`} <br />
+                        <input
+                            type='text'
+                            id='captcha'
+                            // name='captcha'
+                            required
+                            onChange={(event) => setCaptchaResult(event.target.value)}
+                            value={captchaResult}
+                        />
+                    </label>
+                </DivLabel>
 
-                </FormStyles>
-            </Container>
+                <Button type='submit' onClick={handleSubmit}>BAIXAR E-BOOK</Button>
+
+            </FormStyles>
+
         </>
     )
 }

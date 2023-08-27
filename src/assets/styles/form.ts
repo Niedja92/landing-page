@@ -43,7 +43,7 @@ export const DivLabel = styled.div`
     margin-top: 25px;
 
     input {
-        width: 90%;
+        width: 95%;
         padding: 7px;
         border: 1px solid #6950A1;
         border-radius: 5px;
